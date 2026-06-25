@@ -2,7 +2,7 @@ export default function OrnamentDivider() {
   return (
     <div className="flex justify-center my-10">
       <img
-        src="/divider.png"
+        src="/Divider.png"
         alt="Decorative Divider"
         className="
           w-[260px]

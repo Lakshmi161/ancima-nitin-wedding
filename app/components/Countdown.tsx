@@ -70,7 +70,7 @@ export default function Countdown() {
         bg-no-repeat
       "
       style={{
-        backgroundImage: "url('/countdown-background.png')",
+        backgroundImage: "url('/Countdown-background.png')",
       }}
     >
       {/* Soft Overlay */}
