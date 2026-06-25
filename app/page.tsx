@@ -5,6 +5,7 @@ import FloatingPetals from "./components/FloatingPetals";
 import MusicPlayer from "./components/MusicPlayer";
 import Countdown from "./components/Countdown";
 import LotusDivider from "./components/LotusDivider";
+import OrnamentDivider from "./components/OrnamentDivider";
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
@@ -86,139 +87,286 @@ export default function Home() {
       <main className="bg-[#faf7f2] overflow-x-hidden">
 
         {/* HERO */}
-        <section
-          className="
-            min-h-screen
-            flex
-            items-center
-            justify-center
-            px-6
-            bg-cover
-            bg-center
-            bg-no-repeat
-            relative
-          "
-          style={{
-            backgroundImage: "url('/hero-background.png')",
-          }}
-        >
-          <div className="absolute inset-0 bg-white/30"></div>
+<section
+  className="
+    min-h-[90vh]
+    flex
+    items-center
+   
+    px-6
+    py-20
+    bg-cover
+    bg-center
+    bg-no-repeat
+    relative
+  "
+  style={{
+    backgroundImage: "url('/hero-background.png')",
+  }}
+>
+  {/* Soft Overlay */}
+  <div className="absolute inset-0 bg-white/15" />
 
-          <div className="relative z-10 text-center max-w-3xl">
+  <div
+  className="
+    relative
+    z-10
+    text-center
+    max-w-3xl
+    mx-auto
+    flex
+    flex-col
+    items-center
+  "
+>
 
-            <img
-              src="/ganesha.png"
-              alt="Ganesha"
-              className="w-20 mx-auto mb-8"
-            />
+    {/* Ganesha */}
+    <img
+      src="/ganesha.png"
+      alt="Ganesha"
+      className="
+        w-16
+        md:w-20
+        mx-auto
+        mb-6
+      "
+    />
 
-            <h1 className="heading-font text-6xl md:text-8xl text-[#7A263A]">
-              Ancima
-            </h1>
+    {/* Bride */}
+    <h1
+      className="
+        heading-font
+        text-[3.8rem]
+        md:text-7xl
+        text-[#7A263A]
+        leading-none
+      "
+    >
+      Ancima
+    </h1>
 
-            <p className="text-3xl my-3 text-[#C7A04A]">
-              &
-            </p>
+    {/* Ampersand */}
+    <p
+      className="
+        heading-font
+        text-4xl
+        text-[#C7A04A]
+        my-2
+      "
+    >
+      &
+    </p>
 
-            <h1 className="heading-font text-6xl md:text-8xl text-[#7A263A]">
-              Nitin
-            </h1>
-            
+    {/* Groom */}
+    <h1
+      className="
+        heading-font
+        text-[3.8rem]
+        md:text-7xl
+        text-[#7A263A]
+        leading-none
+      "
+    >
+      Nitin
+    </h1>
 
-            <p className="mt-8 text-gray-700 max-w-xl mx-auto">
-              Together with our families,
-              we request the honour of your presence
-              as we celebrate our wedding.
-            </p>
+    {/* Divider */}
+    <div className="mt-4 mb-5">
+      <OrnamentDivider />
+    </div>
 
-            <p className="heading-font text-3xl md:text-4xl text-[#C7A04A] italic">
-  23 August 2026
-</p><LotusDivider />
+    {/* Invitation */}
+    <p
+      className="
+        max-w-md
+        mx-auto
+        text-gray-700
+        text-lg
+        leading-8
+        mt-2
+      "
+    >
+      Together with our families,
+      <br />
+      we request the honour of your presence
+      <br />
+      as we celebrate our wedding.
+    </p>
 
-          </div>
-        </section>
+    {/* Date */}
+    
+
+    {/* Small Floral Divider */}
+    <div className="flex justify-center mt-8">
+      <div className="w-20 h-px bg-[#D4AF37]/40" />
+    </div>
+
+  </div>
+</section>
 
         {/* MUHURTHAM */}
-        {/* Muhurtham */}
+        {/* MUHURTHAM */}
 <section
-  className="py-24 px-6 bg-cover bg-center bg-no-repeat"
+  className="py-20 px-5 bg-cover bg-center bg-no-repeat relative"
   style={{
     backgroundImage: "url('/temple-background.png')",
   }}
 >
-  <div className="max-w-6xl mx-auto bg-white/75 backdrop-blur-sm rounded-[40px] p-8 md:p-12 shadow-xl">
+  <div
+    className="
+      max-w-5xl
+      mx-auto
+      bg-[#FFFDF8]/1
+      backdrop-blur-md
+      border
+      border-white/10
+      rounded-[42px]
+      shadow-[0_25px_80px_rgba(0,0,0,0.12)]
+      p-6
+      md:p-10
+    "
+  >
+    <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
 
-    <div className="grid md:grid-cols-2 gap-12 items-center">
-
-      {/* Image */}
-      <div>
-        <img
-          src="/temple.png"
-          alt="Sree Vadakkumnathan Temple"
-          className="
-            w-full
-            h-[300px]
-            md:h-[500px]
-            object-cover
-            rounded-[40px]
-            shadow-xl
-          "
-        />
+      {/* Temple Image */}
+      <div className="flex justify-center">
+        <div className="bg-white-5 p-2 rounded-[34px] shadow-xl">
+          <img
+            src="/temple.png"
+            alt="Sree Vadakkumnathan Temple"
+            className="
+              w-full
+              max-w-md
+              h-[220px]
+              sm:h-[280px]
+              md:h-[500px]
+              object-cover
+              rounded-[28px]
+            "
+          />
+        </div>
       </div>
 
       {/* Content */}
       <div className="text-center md:text-left">
 
-        <p className="text-[#C7A04A] tracking-[0.3em] uppercase text-sm mb-3">
+        {/* Heading */}
+        <p
+          className="
+            uppercase
+            tracking-[0.45em]
+            text-[12px]
+            text-[#C7A04A]
+            font-medium
+            mb-3
+          "
+        >
           Wedding Ceremony
         </p>
 
-        <h2 className="heading-font text-5xl md:text-6xl text-[#7A263A] mb-6"> 
+        <h2
+          className="
+            heading-font
+            text-4xl
+            md:text-6xl
+            text-[#7A263A]
+            leading-none
+            mb-6
+          "
+        >
           Muhurtham
         </h2>
 
-        <p className="text-gray-600 leading-8">
+        {/* Description */}
+        <p
+          className="
+            text-gray-600
+            leading-8
+            text-[17px]
+            max-w-md
+            mx-auto
+            md:mx-0
+          "
+        >
           As the temple bells resonate and sacred vows are exchanged,
-          we seek your presence and blessings as we begin our journey together.
+          we seek your presence and blessings as we begin our journey
+          together.
         </p>
 
-        <div className="mt-8">
-          <p className="text-xl text-[#7A263A]">
+        {/* Date */}
+        <div className="my-8">
+
+          <p
+            className="
+              text-3xl
+              heading-font
+              text-[#7A263A]
+            "
+          >
             23 August 2026
           </p>
 
-          <p className="text-lg text-gray-600 mt-2 mb-4">
-            10:45 AM - 11:15 AM
+          <p
+            className="
+              mt-2
+              text-lg
+              text-gray-500
+            "
+          >
+            10:45 AM – 11:15 AM
           </p>
+
         </div>
 
-        <p className="heading-font text-4xl md:text-4xl text-[#7A263A] mb-2">
-          Sree Vadakkumnathan Temple
-        </p>
+        {/* Venue */}
+        <h3
+          className="
+            heading-font
+            text-3xl
+            md:text-5xl
+            leading-tight
+            text-[#7A263A]
+          "
+        >
+          Sree Vadakkumnathan
+          <br />
+          Temple
+        </h3>
 
-        <p className="text-gray-600">
+        <p
+          className="
+            mt-3
+            text-lg
+            text-gray-500
+          "
+        >
           Thrissur, Kerala
         </p>
 
+        {/* Button */}
         <a
           href="https://maps.app.goo.gl/8s7wGGECJgb2RsRd8"
           target="_blank"
           rel="noopener noreferrer"
           className="
-            inline-block
-            mt-8
+            inline-flex
+            items-center
+            justify-center
+            mt-10
             px-8
-            py-3
+            py-3.5
             rounded-full
-            bg-[#C7A04A]
+            bg-gradient-to-r
+            from-[#D4AF37]
+            to-[#C9A227]
             text-white
             font-medium
             tracking-wide
+            shadow-lg
             transition-all
-            duration-300
-            hover:bg-[#B18D3A]
-            hover:shadow-xl
-            hover:-translate-y-1
+            duration-500
+            hover:scale-105
+            hover:shadow-2xl
           "
         >
           View Location
@@ -227,96 +375,183 @@ export default function Home() {
       </div>
 
     </div>
-
   </div>
 </section>
         {/* Lunch */}
+{/* LUNCH */}
 <section
-  className="py-24 px-6 bg-cover bg-center bg-no-repeat"
+  className="py-20 px-5 bg-cover bg-center bg-no-repeat relative"
   style={{
     backgroundImage: "url('/lunch-background.png')",
   }}
 >
-  <div className="max-w-6xl mx-auto bg-white/70 backdrop-blur-sm rounded-[40px] p-8 md:p-12 shadow-xl">
-
-    <div className="grid md:grid-cols-2 gap-12 items-center">
+  <div
+    className="
+      max-w-5xl
+      mx-auto
+      bg-[#FFFDF8]/15
+      backdrop-blur-md
+      border
+      border-white/10
+      rounded-[42px]
+      shadow-[0_25px_80px_rgba(0,0,0,0.12)]
+      p-6
+      md:p-10
+    "
+  >
+    <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
 
       {/* Content */}
-      <div className="text-center md:text-left order-2 md:order-1">
-
-        <p className="text-[#C7A04A] tracking-[0.3em] uppercase text-sm mb-3">
+      <div
+        className="
+          text-center
+          md:text-left
+          order-2
+          md:order-1
+        "
+      >
+        {/* Section Label */}
+        <p
+          className="
+            uppercase
+            tracking-[0.45em]
+            text-[12px]
+            text-[#C7A04A]
+            font-medium
+            mb-3
+          "
+        >
           Celebration Lunch
         </p>
 
-        <h2 className="heading-font text-5xl md:text-6xl text-[#7A263A] mb-6">
+        {/* Heading */}
+        <h2
+          className="
+            heading-font
+            text-4xl
+            md:text-6xl
+            text-[#7A263A]
+            leading-none
+            mb-6
+          "
+        >
           Wedding Feast
         </h2>
 
-        <p className="text-gray-600 leading-8">
-          Following the ceremony, please join us for a celebratory lunch
-          as we gather with family and friends to share joy, laughter,
-          and blessings.
+        {/* Description */}
+        <p
+          className="
+            text-gray-600
+            leading-8
+            text-[17px]
+            max-w-md
+            mx-auto
+            md:mx-0
+          "
+        >
+          Following the ceremony, please join us for a celebratory
+          lunch as we gather with family and friends to share joy,
+          laughter and blessings.
         </p>
 
-        <div className="mt-8">
-          <p className="text-xl text-[#7A263A] mb-2">
+        {/* Time */}
+        <div className="my-8">
+          <p
+            className="
+              heading-font
+              text-3xl
+              text-[#7A263A]
+            "
+          >
             11:30 AM Onwards
           </p>
         </div>
 
-        <p className="heading-font text-4xl md:text-4xl text-[#7A263A] mb-3">
+        {/* Venue */}
+        <h3
+          className="
+            heading-font
+            text-3xl
+            md:text-5xl
+            leading-tight
+            text-[#7A263A]
+            mb-4
+          "
+        >
           Aishwarya Regency
+        </h3>
+
+        <p
+          className="
+            text-gray-500
+            text-lg
+            leading-8
+          "
+        >
+          Kunnath Mana Lane
+          <br />
+          Naikkanal, Thrissur
+          <br />
+          Kerala 680001
         </p>
 
-        <p className="text-gray-600">
-          Kunnath Mana Ln, Naikkanal, <br></br>
-           Thrissur, Kerala 680001
-        </p>
-
+        {/* Button */}
         <a
           href="https://maps.app.goo.gl/Qr4act5aMnY7h7PM8"
           target="_blank"
           rel="noopener noreferrer"
           className="
-            inline-block
-            mt-8
+            inline-flex
+            items-center
+            justify-center
+            mt-10
             px-8
-            py-3
+            py-3.5
             rounded-full
-            bg-[#C7A04A]
+            bg-gradient-to-r
+            from-[#D4AF37]
+            to-[#C9A227]
             text-white
             font-medium
             tracking-wide
+            shadow-lg
             transition-all
-            duration-300
-            hover:bg-[#B18D3A]
-            hover:shadow-xl
-            hover:-translate-y-1
+            duration-500
+            hover:scale-105
+            hover:shadow-2xl
           "
         >
           View Location
         </a>
-
       </div>
 
       {/* Image */}
-      <div className="order-1 md:order-2">
-        <img
-          src="/lunch.png"
-          alt="Wedding Feast"
-          className="
-            w-full
-            h-[300px]
-            md:h-[500px]
-            object-cover
-            rounded-[40px]
-            shadow-xl
-          "
-        />
+      <div
+        className="
+          flex
+          justify-center
+          order-1
+          md:order-2
+        "
+      >
+        <div className="bg-white-5 p-2 rounded-[34px] shadow-xl">
+          <img
+            src="/lunch.png"
+            alt="Wedding Feast"
+            className="
+              w-full
+              max-w-md
+              h-[220px]
+              sm:h-[280px]
+              md:h-[500px]
+              object-cover
+              rounded-[28px]
+            "
+          />
+        </div>
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -328,58 +563,124 @@ export default function Home() {
 
         
         {/* Thank You */}
+        {/* THANK YOU */}
 <section
-  className="py-24 px-6 bg-cover bg-center"
+  className="py-20 px-5 bg-cover bg-center bg-no-repeat relative"
   style={{
     backgroundImage: "url('/thankyou-background.png')",
   }}
 >
-  <div className="max-w-3xl mx-auto bg-white/75 backdrop-blur-sm rounded-[40px] p-12 text-center">
+  {/* Soft Overlay */}
+  <div className="absolute inset-0 bg-white/10" />
 
-    <p className="text-[#C7A04A] tracking-[0.3em] uppercase text-sm mb-3">
-      With Gratitude
+  <div
+    className="
+      relative
+      z-10
+      max-w-2xl
+      mx-auto
+      bg-[#FFFDF8]/70
+      backdrop-blur-md
+      border
+      border-white/5
+      rounded-[42px]
+      shadow-[0_25px_80px_rgba(0,0,0,0.12)]
+      px-8
+      py-10
+      text-center
+    "
+  >
+    {/* Section Label */}
+    <p
+      className="
+        uppercase
+        tracking-[0.45em]
+        text-[#C7A04A]
+        text-xs
+        mb-4
+      "
+    >
+      With Grateful Hearts
     </p>
 
-    <h2 className="heading-font text-5xl md:text-6xl text-[#7A263A] mb-8">
+    {/* Heading */}
+    <h2
+      className="
+        heading-font
+        text-5xl
+        md:text-6xl
+        text-[#7A263A]
+        mb-8
+      "
+    >
       Thank You
     </h2>
 
-    <p className="text-gray-600 leading-8">
+    {/* Message */}
+    <p
+      className="
+        text-gray-600
+        text-[17px]
+        leading-8
+        max-w-lg
+        mx-auto
+      "
+    >
       Your presence, love and blessings mean the world to us.
+      <br />
+      <br />
+      Thank you for celebrating this beautiful day with us.
+      We are grateful to share these cherished moments with
+      our family and friends, and we look forward to beginning
+      this new chapter surrounded by your love and blessings.
     </p>
 
-    <p className="mt-6 text-gray-600 leading-8">
-      Thank you for being a part of our celebration and for sharing
-      in the joy of this special day.
-    </p>
+    {/* Divider */}
+    <div className="flex justify-center my-8">
+      <div className="w-20 h-px bg-[#D4AF37]/40" />
+    </div>
 
-    <p className="mt-6 text-gray-600 leading-8">
-      We look forward to creating beautiful memories together.
-    </p>
-
-    <p className="mt-10 text-[#7A263A] text-lg tracking-[0.2em] uppercase">
+    {/* Closing */}
+    <p
+      className="
+        uppercase
+        tracking-[0.35em]
+        text-[#7A263A]
+        text-sm
+      "
+    >
       With Love
     </p>
 
-    <div className="mt-6 flex justify-center">
-      <img
-        src="/logo.png"
-        alt="Ancima and Nitin"
-        className="
-          w-28
-          md:w-40
-          lg:w-48
-          object-contain
-        "
-      />
-    </div>
+    {/* Logo */}
+    <img
+      src="/logo.png"
+      alt="Ancima & Nitin"
+      className="
+        w-24
+        md:w-28
+        mx-auto
+        mt-5
+        mb-5
+        object-contain
+      "
+    />
 
-    <h3 className="heading-font text-4xl md:text-5xl text-[#7A263A] mt-4">
-  Ancima & Nitin
-</h3> 
-
+    {/* Names */}
+    <h3
+      className="
+        heading-font
+        text-4xl
+        md:text-5xl
+        text-[#7A263A]
+      "
+    >
+      Ancima & Nitin
+    </h3>
   </div>
 </section>
+
+
         
 
       </main>

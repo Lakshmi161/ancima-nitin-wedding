@@ -3,118 +3,237 @@
 import { useEffect, useState } from "react";
 
 export default function Countdown() {
-  const weddingDate = new Date("2026-08-23T10:45:00");
+  const weddingDate = new Date("2026-08-23T10:45:00").getTime();
 
-  const calculateTimeLeft = () => {
-    const difference = weddingDate.getTime() - new Date().getTime();
-
-    if (difference <= 0) {
-      return null;
-    }
-
-    return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / (1000 * 60)) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    finished: false,
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          finished: true,
+        });
+
+        clearInterval(timer);
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        ),
+        minutes: Math.floor(
+          (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+        ),
+        seconds: Math.floor(
+          (distance % (1000 * 60)) /
+            1000
+        ),
+        finished: false,
+      });
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
-  if (!timeLeft) {
-    return (
-      <section
-        className="
-          py-24
-          px-6
-          bg-cover
-          bg-center
-          bg-no-repeat
-        "
-        style={{
-          backgroundImage: "url('/Countdown-background.png')",
-        }}
-      >
-        <div className="max-w-4xl mx-auto  backdrop-blur-sm rounded-[40px] p-10 text-center">
-
-          <div className="text-6xl mb-6">💍</div>
-
-          <h2 className="text-5xl text-[#7A263A] mb-6">
-            Happily Married
-          </h2>
-
-          
-          <p className="text-lg text-gray-600 leading-8">
-            Thank you for your love, blessings and presence
-            as we began this beautiful journey together.
-          </p>
-
-          <p className="mt-10 text-[#7A263A] text-2xl">
-            Ancima & Nitin
-          </p>
-
-        </div>
-      </section>
-    );
-  }
+  const timerItems = [
+    { value: timeLeft.days, label: "Days" },
+    { value: timeLeft.hours, label: "Hours" },
+    { value: timeLeft.minutes, label: "Minutes" },
+    { value: timeLeft.seconds, label: "Seconds" },
+  ];
 
   return (
     <section
       className="
-        py-16 md:py-24 px-4 md:px-6
+        relative
+        py-24
+        px-6
         bg-cover
         bg-center
         bg-no-repeat
       "
       style={{
-        backgroundImage: "url('/Countdown-background.png')",
+        backgroundImage: "url('/countdown-background.png')",
       }}
     >
-      <div className="max-w-5xl mx-auto  backdrop-blur-sm rounded-[40px] p-8 md:p-12">
+      {/* Soft Overlay */}
+      <div className="absolute inset-0 bg-white/5" />
 
-        <h2 className="heading-font text-4xl md:text-6xl text-[#7A263A] text-center mb-10">
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+
+        {/* Heading */}
+        <p
+          className="
+            uppercase
+            tracking-[0.45em]
+            text-[#C7A04A]
+            text-xs
+            mb-4
+          "
+        >
+          Our Wedding
+        </p>
+
+        <h2
+          className="
+            heading-font
+            text-4xl
+            md:text-6xl
+            text-[#7A263A]
+            leading-tight
+            mb-16
+          "
+        >
           Counting Down To Forever
         </h2>
 
-        <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 md:gap-6">
-          {[
-            { label: "Days", value: timeLeft.days },
-            { label: "Hours", value: timeLeft.hours },
-            { label: "Minutes", value: timeLeft.minutes },
-            { label: "Seconds", value: timeLeft.seconds },
-          ].map((item) => (
-            <div
-              key={item.label}
+        {timeLeft.finished ? (
+          <div>
+            <h2
               className="
-  bg-white/80
-  backdrop-blur-sm
-  rounded-2xl
-  p-5
-  w-[140px]
-  md:w-[160px]
-  shadow-md
-"
+                heading-font
+                text-5xl
+                text-[#7A263A]
+              "
             >
-              <div className="text-3xl md:text-4xl font-bold text-[#7A263A]">
-                {item.value}
-              </div>
+              We Are Married ❤
+            </h2>
 
-              <div className="text-gray-500 mt-2">
-                {item.label}
-              </div>
-            </div>
-          ))}
+            <p
+              className="
+                mt-6
+                text-gray-600
+                text-lg
+              "
+            >
+              Thank you for being part of our beautiful journey.
+            </p>
+          </div>
+        ) : (
+          <>
+            {/* Desktop */}
+            {/* Desktop */}
+<div
+  className="
+    hidden
+    md:flex
+    justify-center
+    items-center
+  "
+>
+  {timerItems.map((item, index) => (
+    <div
+      key={item.label}
+      className="flex items-center"
+    >
+      <div className="px-8 text-center">
+        <h3
+          className="
+            heading-font
+            text-7xl
+            text-[#7A263A]
+            leading-none
+          "
+        >
+          {String(item.value).padStart(2, "0")}
+        </h3>
+
+        <p
+          className="
+            mt-3
+            uppercase
+            tracking-[0.25em]
+            text-sm
+            text-gray-600
+          "
+        >
+          {item.label}
+        </p>
+      </div>
+
+      {index < timerItems.length - 1 && (
+        <div className="h-20 w-px bg-[#D4AF37]/40 mx-2" />
+      )}
+    </div>
+  ))}
+</div>
+
+{/* Mobile */}
+<div
+  className="
+    md:hidden
+    grid
+    grid-cols-4
+    gap-2
+    mt-8
+    items-start
+  "
+>
+  {timerItems.map((item, index) => (
+    <div
+      key={item.label}
+      className="relative text-center"
+    >
+      <h3
+        className="
+          heading-font
+          text-[2.6rem]
+          leading-none
+          text-[#7A263A]
+        "
+      >
+        {String(item.value).padStart(2, "0")}
+      </h3>
+
+      <p
+        className="
+          mt-2
+          uppercase
+          tracking-[0.18em]
+          text-[10px]
+          text-gray-600
+        "
+      >
+        {item.label}
+      </p>
+
+      {index < timerItems.length - 1 && (
+        <div
+          className="
+            absolute
+            right-0
+            top-4
+            translate-x-3
+            text-[#D4AF37]
+            text-2xl
+            font-light
+          "
+        >
+          |
         </div>
-
+      )}
+    </div>
+  ))}
+</div>
+          </>
+        )}
       </div>
     </section>
   );

@@ -13,9 +13,12 @@ const poppins = Poppins({
   variable: "--font-body",
 });
 
-export const metadata: Metadata = {
-  title: "Ancima & Nitin",
-  description: "Wedding Invitation",
+export const metadata = {
+  title: "Ancima & Nitin Wedding",
+  description: "Wedding  Invitation",
+  icons: {
+    icon: "/logo1.png",
+  },
 };
 
 export default function RootLayout({
